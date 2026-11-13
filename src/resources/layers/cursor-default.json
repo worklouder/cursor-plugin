@@ -1,0 +1,324 @@
+{
+  "id": 1,
+  "name": "Cursor default",
+  "description": "Work Louder device controls for Cursor, with API Smart Actions and native Cursor shortcuts.",
+  "os": [
+    0,
+    1
+  ],
+  "keyboardLayoutTypes": [
+    "universal"
+  ],
+  "devices": [
+    "codex_micro",
+    "creator_micro_v2",
+    "creator_micro_v2_base",
+    "creator_micro_v2_pro"
+  ],
+  "layer": {
+    "id": 0,
+    "name": "Cursor",
+    "color": "#2864FF",
+    "layout": {
+      "base": [
+        [
+          {
+            "keycode": "SA_1"
+          },
+          {
+            "keycode": "SA_2"
+          }
+        ],
+        [
+          {
+            "keycode": "SA_3"
+          },
+          {
+            "keycode": "SA_4"
+          },
+          {
+            "keycode": "SA_5"
+          },
+          {
+            "keycode": "SA_6"
+          }
+        ],
+        [
+          {
+            "keycode": "KA_3"
+          },
+          {
+            "keycode": "KA_2"
+          },
+          {
+            "keycode": "KC_ESC"
+          },
+          {
+            "keycode": "KA_4"
+          }
+        ],
+        [
+          {
+            "keycode": "KA_1"
+          },
+          {
+            "keycode": "KC_NONE"
+          },
+          {
+            "keycode": "KC_ENT"
+          }
+        ]
+      ],
+      "encoders": [
+        [
+          {
+            "keycode": "SA_13"
+          },
+          {
+            "keycode": "SA_14"
+          },
+          {
+            "keycode": "KC_ENT"
+          }
+        ]
+      ],
+      "joystick": {
+        "type": "RADIAL",
+        "sectors": [
+          {
+            "k": "KC_UP",
+            "a1": 0.625,
+            "a2": 0.875
+          },
+          {
+            "k": "SA_17",
+            "a1": 0.875,
+            "a2": 0.125
+          },
+          {
+            "k": "KC_DOWN",
+            "a1": 0.125,
+            "a2": 0.375
+          },
+          {
+            "k": "SA_19",
+            "a1": 0.375,
+            "a2": 0.625
+          }
+        ]
+      }
+    },
+    "os": 0
+  },
+  "actions": [
+    {
+      "id": 1,
+      "name": "Push to talk",
+      "color": null,
+      "keyInputs": [
+        {
+          "keycode": "KC_LCTL",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_M",
+          "delay": 0,
+          "actionType": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Approve",
+      "color": null,
+      "keyInputs": [
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_ENT",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "New Chat",
+      "color": null,
+      "keyInputs": [
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_N",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Open Model Picker",
+      "color": null,
+      "keyInputs": [
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_SLSH",
+          "delay": 0,
+          "actionType": 1
+        },
+        {
+          "keycode": "KC_LGUI",
+          "delay": 0,
+          "actionType": 0
+        }
+      ]
+    }
+  ],
+  "actionGroups": [
+    {
+      "id": 1,
+      "name": "Cursor",
+      "color": "#2864FF",
+      "actionIds": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "multiactions": [],
+  "multiactionGroups": [],
+  "smartActions": [
+    {
+      "id": 1,
+      "name": "Agent 1",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Agent 2",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.2"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Agent 3",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.3"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Agent 4",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.4"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Agent 5",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.5"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Agent 6",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.agent.6"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Dial Counterclockwise",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.dial.ccw"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Dial Clockwise",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.dial.cw"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Stick Right",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.stick.right"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Stick Left",
+      "color": null,
+      "type": "API",
+      "payload": {
+        "id": "cursor.stick.left"
+      }
+    }
+  ],
+  "smartActionGroups": [
+    {
+      "id": 1,
+      "name": "Cursor",
+      "color": "#2864FF",
+      "actionIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        14,
+        17,
+        19
+      ]
+    }
+  ]
+}

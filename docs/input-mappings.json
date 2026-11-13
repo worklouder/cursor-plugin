@@ -1,0 +1,74 @@
+{
+  "description": "Cursor control identifiers. Microphone, New Chat, Model Picker and Approve are native actions; Send, encoder press, Decline and model navigation are native keys; other controls use Input API Smart Actions.",
+  "namespace": "cursor.",
+  "base": [
+    ["cursor.agent.1", "cursor.agent.2"],
+    ["cursor.agent.3", "cursor.agent.4", "cursor.agent.5", "cursor.agent.6"],
+    ["cursor.command.newChat", "cursor.command.approve", "cursor.command.decline", "cursor.command.modelPicker"],
+    ["cursor.command.microphone", null, "cursor.command.send"]
+  ],
+  "encoders": [["cursor.dial.ccw", "cursor.dial.cw", "cursor.command.send"]],
+  "joystick": {
+    "up": "cursor.model.previous", "right": "cursor.stick.right",
+    "down": "cursor.model.next", "left": "cursor.stick.left"
+  },
+  "notes": [
+    "The bundled layer maps API identifiers on a separate Cursor layer; Microphone, New Chat, Model Picker and Approve use the native Actions below.",
+    "The unused switch beneath the wide microphone key should remain KC_NONE, avoiding two toggles from one press.",
+    "Joystick directions require Input radial sectors. Up and down send native arrow keys for the open model picker; raw analog movement is not exposed by the WebSocket API.",
+    "The Fast-labeled button is Cmd+N on macOS or Ctrl+N on Windows for New Chat. The Fork-labeled button is Cmd+/ or Ctrl+/ for the model picker. Approve is Cmd+Enter or Ctrl+Enter, Decline is Escape, and Send is Enter. They act on Cursor's focused Agents Window.",
+    "Encoder press shares the native Enter mapping: it confirms focused menus and submits when Cursor's composer treats Enter as Send. Encoder hold has no separate action; open setup with /worklouder-setup.",
+    "Do not replace the keys on the default device layer. Use a separate layer.",
+    "Every imported Action, Multiaction and Smart Action belongs to a group named Cursor in its category. All API identifiers start with cursor.; native controls do not use API identifiers."
+  ],
+  "nativeActions": [
+    {
+      "keycode": "KA_1",
+      "control": "cursor.command.microphone",
+      "shortcut": "Ctrl+M",
+      "behavior": "Control and M are pressed while the physical key is held and released by firmware when it is released."
+    },
+    {
+      "keycode": "KC_ENT",
+      "control": "cursor.command.send",
+      "shortcut": "Enter",
+      "behavior": "Firmware sends a native Enter key while Cursor's composer is focused."
+    },
+    {
+      "keycode": "KA_2",
+      "control": "cursor.command.approve",
+      "shortcut": "Cmd+Enter (macOS) / Ctrl+Enter (Windows)",
+      "behavior": "Firmware sends Cursor's native approval shortcut to the focused chat."
+    },
+    {
+      "keycode": "KA_3",
+      "control": "cursor.command.newChat",
+      "shortcut": "Cmd+N (macOS) / Ctrl+N (Windows)",
+      "behavior": "Firmware creates a new chat while Cursor's Agents Window is focused."
+    },
+    {
+      "keycode": "KA_4",
+      "control": "cursor.command.modelPicker",
+      "shortcut": "Cmd+/ (macOS) / Ctrl+/ (Windows)",
+      "behavior": "Firmware opens Cursor's native model picker while the Agents Window is focused."
+    },
+    {
+      "keycode": "KC_UP",
+      "control": "cursor.model.previous",
+      "shortcut": "Up Arrow",
+      "behavior": "Firmware moves to the previous entry while Cursor's model picker is open."
+    },
+    {
+      "keycode": "KC_DOWN",
+      "control": "cursor.model.next",
+      "shortcut": "Down Arrow",
+      "behavior": "Firmware moves to the next entry while Cursor's model picker is open."
+    },
+    {
+      "keycode": "KC_ESC",
+      "control": "cursor.command.decline",
+      "shortcut": "Escape",
+      "behavior": "Firmware sends Cursor's native decline or skip shortcut to the focused approval UI."
+    }
+  ]
+}

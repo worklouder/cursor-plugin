@@ -1,0 +1,13 @@
+{
+  "name": "worklouder",
+  "owner": { "name": "Work Louder" },
+  "metadata": {
+    "description": "Work Louder device controls for Cursor."
+  },
+  "plugins": [
+    {
+      "name": "worklouder",
+      "source": "./"
+    }
+  ]
+}

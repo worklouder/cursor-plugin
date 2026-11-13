@@ -1,0 +1,8 @@
+/dist/
+# InputKit is committed so the plugin runs straight from a Git checkout.
+node_modules/*
+!node_modules/@worklouder/
+node_modules/@worklouder/*
+!node_modules/@worklouder/input-kit/
+.DS_Store
+*.log

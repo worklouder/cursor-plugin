@@ -1,0 +1,24 @@
+#!/bin/sh
+# Use the runtime already shipped with Cursor; Node is not a user prerequisite.
+set -eu
+plugin_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+runtime=''
+if [ -n "${WORKLOUDER_CURSOR_EXECUTABLE:-}" ] && [ -x "$WORKLOUDER_CURSOR_EXECUTABLE" ]; then
+  runtime=$WORKLOUDER_CURSOR_EXECUTABLE
+elif [ -x '/Applications/Cursor.app/Contents/MacOS/Cursor' ]; then
+  runtime='/Applications/Cursor.app/Contents/MacOS/Cursor'
+elif [ -x "$HOME/Applications/Cursor.app/Contents/MacOS/Cursor" ]; then
+  runtime="$HOME/Applications/Cursor.app/Contents/MacOS/Cursor"
+elif [ "$(uname -s)" = 'Darwin' ]; then
+  cursor_app=$(/usr/bin/mdfind 'kMDItemCFBundleIdentifier == "com.todesktop.230313mzl4w4u92"' 2>/dev/null | /usr/bin/head -n 1)
+  if [ -n "$cursor_app" ] && [ -x "$cursor_app/Contents/MacOS/Cursor" ]; then
+    runtime="$cursor_app/Contents/MacOS/Cursor"
+  fi
+fi
+if [ -z "$runtime" ]; then
+  printf '%s\n' 'Work Louder: could not find Cursor. Set WORKLOUDER_CURSOR_EXECUTABLE to its full path and try again.' >&2
+  exit 1
+fi
+unset NODE_OPTIONS NODE_REPL_EXTERNAL_MODULE
+export ELECTRON_RUN_AS_NODE=1
+exec "$runtime" "$plugin_root/src/entry.cjs" "$@"

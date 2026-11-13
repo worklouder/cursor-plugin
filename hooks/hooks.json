@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "workspaceOpen": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook workspaceOpen", "timeout": 3 }],
+    "sessionStart": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook sessionStart", "timeout": 3 }],
+    "sessionEnd": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook sessionEnd", "timeout": 3 }],
+    "beforeSubmitPrompt": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook beforeSubmitPrompt", "timeout": 3 }],
+    "postToolUse": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook postToolUse", "timeout": 3 }],
+    "postToolUseFailure": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook postToolUseFailure", "timeout": 3 }],
+    "afterAgentResponse": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook afterAgentResponse", "timeout": 3 }],
+    "stop": [{ "command": "'${CURSOR_PLUGIN_ROOT}/scripts/run-cursor' hook stop", "timeout": 3 }]
+  }
+}

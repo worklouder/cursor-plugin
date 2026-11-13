@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "worklouder": {
+      "command": "${CURSOR_PLUGIN_ROOT}/scripts/run-cursor",
+      "args": ["mcp"]
+    }
+  }
+}

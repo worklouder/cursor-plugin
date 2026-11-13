@@ -1,0 +1,16 @@
+{
+  "name": "worklouder",
+  "description": "Control Cursor's Agents Window with Work Louder devices: Agent Keys for your chats with status lighting, plus new chat, model picker, approval and voice controls. Requires Work Louder Input.",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": { "node": ">=22.15.0" },
+  "scripts": {
+    "test": "node --test test/*.test.cjs",
+    "check": "node scripts/check.cjs",
+    "package": "python3 scripts/package.py"
+  },
+  "dependencies": {
+    "@worklouder/input-kit": "0.2.0"
+  }
+}
