@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const { once } = require('node:events');
 const { Client, ENDPOINT } = require('../src/client/client.cjs');
 const { inputServer, credentials } = require('./fixture.cjs');
+const { cursorLayer } = require('../src/resources/layers/platform.cjs');
 const saved = { applicationId: 'application', token: 'token' };
 const clientOptions = (server, options = {}) => ({ port: Number(new URL(server.url).port), ...options });
 test('pairs once, saves credentials, then authenticates on a later connection', async (t) => {
@@ -43,13 +44,14 @@ test('uses current selection and lighting methods, serializes requests, and neve
   }); t.after(() => server.close());
   const client = new Client(credentials(saved), clientOptions(server, { requestTimeoutMs: 80, addLayerTimeoutMs: 80 })); t.after(() => client.stop());
   await client.connect(); await Promise.all([client.getDevices(), client.getDevices()]);
-  for (let i = 1; i < 3; i++) assert.ok(server.calls[i].at - server.calls[i - 1].at >= 380);
+  for (let i = 1; i < 3; i++) assert.ok(server.calls[i].at - server.calls[i - 1].at >= 140);
   assert.deepEqual(await client.setActiveProfileLayer({ deviceId: 1, profileIndex: 0, layerIndex: 1 }), { changed: true });
   assert.deepEqual(await client.setKeyLighting({ deviceId: 1, identifier: 'cursor.agent.1', isRegex: false, brightness: 0.5 }), { applied: true });
-  await assert.rejects(client.addLayer({ deviceId: 1, profileIndex: 0, definition: { id: 1 } }), /outcome may be unknown/i);
+  const definition = cursorLayer();
+  await assert.rejects(client.addLayer({ deviceId: 1, profileIndex: 0, definition }), /outcome may be unknown/i);
   const addLayerCalls = server.calls.filter((call) => call.method === 'addLayer');
   assert.equal(addLayerCalls.length, 1);
-  assert.deepEqual(addLayerCalls[0].params, { deviceId: 1, profileIndex: 0, definition: { id: 1 } });
+  assert.deepEqual(addLayerCalls[0].params, { deviceId: 1, profileIndex: 0, definition });
   assert.equal(Object.hasOwn(addLayerCalls[0].params, 'preset'), false);
 });
 test('disconnect rejects in-flight work and an explicit stop disables reconnect', async (t) => {

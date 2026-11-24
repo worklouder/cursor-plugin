@@ -16,7 +16,7 @@ for (const folder of ['src', 'scripts', 'test']) {
 execFileSync(process.execPath, ['--check', path.join(root, 'src/ui/app.js')]);
 for (const file of ['package.json', 'package-lock.json', 'mcp.json', 'hooks/hooks.json', '.cursor-plugin/plugin.json', '.cursor-plugin/marketplace.json', 'docs/input-mappings.json', 'src/resources/layers/cursor-default.json']) JSON.parse(fs.readFileSync(path.join(root, file)));
 const pkg = require('../package.json');
-const inputKitVersion = '0.2.0';
+const inputKitVersion = '0.4.0';
 const expectedDependencies = { '@worklouder/input-kit': inputKitVersion };
 assert.deepEqual(pkg.dependencies, expectedDependencies, 'Unexpected dependencies');
 assert.equal(pkg.devDependencies, undefined, 'Unexpected devDependencies');
