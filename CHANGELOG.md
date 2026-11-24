@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- The bundled Cursor layer turns its backlight and underglow off instead of copying the lighting of the profile's last layer.
+- The Cursor action groups use Input's blue (#0D72FF).
+- Updated Input Kit to 0.4.0, which checks layer definitions before sending them.
+
 ## 1.0.0
 
 First public release on the Cursor Marketplace.
