@@ -79,4 +79,10 @@ test('native Cursor shortcuts and every imported action are configured correctly
     assert.deepEqual(new Set(members), expected, `all ${items} are in Cursor without dangling group members`);
     assert.equal(members.length, expected.size, 'no duplicate group members');
   }
+  for (const definition of [layerDefinition, cursorLayer('darwin'), cursorLayer('win32')]) {
+    assert.deepEqual(definition.layer.lights, { backlight: { effect: 0 }, underglow: { effect: 0 } }, 'layer lighting is off on both sides');
+    for (const group of [...definition.actionGroups, ...definition.multiactionGroups, ...definition.smartActionGroups]) {
+      assert.equal(group.color, '#0D72FF', `group ${group.name} uses Input's blue`);
+    }
+  }
 });

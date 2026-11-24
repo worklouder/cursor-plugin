@@ -1,7 +1,7 @@
 {
   "name": "worklouder",
   "displayName": "Work Louder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Control Cursor's Agents Window with Work Louder devices: Agent Keys for your chats with status lighting, plus new chat, model picker, approval and voice controls. Requires Work Louder Input.",
   "author": { "name": "Work Louder" },
   "homepage": "https://github.com/worklouder/cursor-plugin",

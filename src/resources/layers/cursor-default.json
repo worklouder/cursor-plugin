@@ -19,6 +19,14 @@
     "id": 0,
     "name": "Cursor",
     "color": "#2864FF",
+    "lights": {
+      "backlight": {
+        "effect": 0
+      },
+      "underglow": {
+        "effect": 0
+      }
+    },
     "layout": {
       "base": [
         [
@@ -199,7 +207,7 @@
     {
       "id": 1,
       "name": "Cursor",
-      "color": "#2864FF",
+      "color": "#0D72FF",
       "actionIds": [
         1,
         2,
@@ -306,7 +314,7 @@
     {
       "id": 1,
       "name": "Cursor",
-      "color": "#2864FF",
+      "color": "#0D72FF",
       "actionIds": [
         1,
         2,
